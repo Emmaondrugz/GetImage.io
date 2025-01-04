@@ -12,44 +12,6 @@ type BannerProps = {
 
 const Banner: React.FC<BannerProps> = ({ url, setUrl, onExtractImages, isExtracting }) => {
 
-    // State to hold the current loading message
-    const [loadingMessage, setLoadingMessage] = useState<string>('');
-
-    // Array of loading messages to cycle through
-    const loadingMessages = [
-        'Getting images from elements...',
-        'Processing images...',
-        'Optimizing image quality...',
-        'Finalizing extraction...',
-    ];
-
-
-     // Ref to persist the current index across renders
-     const currentIndexRef = useRef(0);
-
-     // Effect to update the loading message when isExtracting is true
-     useEffect(() => {
-         if (isExtracting) {
-             // Function to update the loading message
-             const updateMessage = () => {
-                 setLoadingMessage(loadingMessages[currentIndexRef.current]);
-                 currentIndexRef.current = (currentIndexRef.current + 1) % loadingMessages.length; // Cycle through messages
-             };
- 
-             // Set an interval to update the message every 3 seconds
-             const intervalId = setInterval(updateMessage, 3000);
- 
-             // Clear the interval when the component unmounts or isExtracting becomes false
-             return () => clearInterval(intervalId);
-         } else {
-             // Reset the loading message when extraction is done
-             setLoadingMessage('');
-             currentIndexRef.current = 0; // Reset the index for the next extraction
-         }
-     }, [isExtracting, loadingMessages]);
- 
-
-
     return (
         <div className="relative z-20 flex flex-col items-center justify-end w-full pt-48 text-center md:h-screen md:justify-normal gap-y-8">
             <h1 className="text-4xl mb-24 md:mb-0 md:text-5xl mx-5 text-center md:text-center leading-[45px] md:leading-[55px] font-medium poppins">Extract All <span className="text-green-600">Images</span> <br /> From Websites Of Your Choice.
