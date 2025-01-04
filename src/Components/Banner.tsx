@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
-import { useState, useEffect, useRef  } from 'react'
+import '../index.css'
 
 type BannerProps = {
     url: string;
@@ -48,9 +48,18 @@ const Banner: React.FC<BannerProps> = ({ url, setUrl, onExtractImages, isExtract
             </div>
 
             <div>
-                {isExtracting && (
-                    <p className={`text-xl text-green-500 messages`}>{loadingMessage}</p>
-                )}
+                <div className={`card ${isExtracting ? "opacity-100" : "opacity-0"} transition duration-500`}>
+                    <div className="loader">
+                        <p className="hidden">loading</p>
+                        <div className="words">
+                        <span className="word">Counting pixels... Don’t let them escape!</span>
+                        <span className="word">Herding images into place... They’re a bit stubborn!</span>
+                        <span className="word">Teaching images to behave... Almost done!</span>
+                        <span className="word">Convincing images to load... They’re shy!</span>
+                        <span className="word">Baking your visuals... Just a little longer in the oven!</span>
+                        </div>
+                    </div>
+                 </div>
             </div>
         </div>
     )

@@ -45,10 +45,10 @@ const ApiPage : React.FC<HeaderProps> = ({ navState, setNavState, sideNav, setSi
             </div>
 
 
-           <div className="mt-52 w-full flex justify-center">
+           <div className="flex justify-center w-full mt-52">
                 <Button />
             </div>
-            <div className="flex flex-col justify-center w-full h-32 pt-10 text-sm text-center mt-10 gap-y-5 md:flex-row md:text-left md:h-fit comfortaa md:border-t">
+            <div className="flex flex-col justify-center w-full h-32 py-10 mt-10 text-sm text-center gap-y-5 md:flex-row md:text-left md:h-fit comfortaa md:border-t">
                 <div>
                     <h1>©2024 GetImg.io</h1>
                 </div>
