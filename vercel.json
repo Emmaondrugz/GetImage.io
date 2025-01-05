@@ -28,5 +28,34 @@
       "dest": "/index.html",
       "status": 200
     }
+  ],
+  "headers": [
+    {
+      "source": "/src/(.*).js",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/javascript"
+        }
+      ]
+    },
+    {
+      "source": "/src/(.*).ts",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/typescript"
+        }
+      ]
+    },
+    {
+      "source": "/src/(.*).tsx",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/typescript"
+        }
+      ]
+    }
   ]
 }
