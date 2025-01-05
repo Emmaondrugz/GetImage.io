@@ -14,19 +14,18 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/server.js"
+      "source": "/api/(.*)",
+      "destination": "api/server.js"
     },
     {
-      "src": "/src/(.*)",
-      "dest": "/src/$1"
+      "source": "/src/(.*)",
+      "destination": "/src/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
