@@ -44,43 +44,43 @@ const Home: React.FC<HeaderProps> = ({ navState, setNavState, sideNav, setSideNa
 
   const handleExtractImages = async () => {
     console.log('Extract images button clicked');
-
+  
     if (!url) {
       alert('Please enter a valid URL');
       return;
     }
-
+  
     setIsExtracting(true);
-
+  
     try {
       // Step 1: Extract images
-      const extractResponse = await fetch('http://localhost:3001/api/extract-images', {
+      const extractResponse = await fetch('https://getimage-io.onrender.com/api/extract-images', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ url }),
       });
-
+  
       if (!extractResponse.ok) {
         throw new Error('Failed to extract images');
       }
-
+  
       const extractData = await extractResponse.json();
       alert(extractData.message);
-
+  
       // Step 2: Fetch the extracted images
-      const imagesResponse = await fetch('http://localhost:3001/api/images');
-
+      const imagesResponse = await fetch('https://getimage-io.onrender.com/api/images');
+  
       if (!imagesResponse.ok) {
         throw new Error('Failed to fetch images');
       }
-
+  
       const imagesData = await imagesResponse.json();
       if (imagesData.success && imagesData.images.length > 0) {
-        const updatedImages = imagesData.images.map((image:ImageData) => ({
+        const updatedImages = imagesData.images.map((image: ImageData) => ({
           ...image,
-          path: `http://localhost:3001${image.path}`, // Prepend the backend URL
+          path: `https://getimage-io.onrender.com${image.path}`, // Prepend the backend URL
         }));
         setImages(updatedImages);
         setContainer(true);
@@ -113,7 +113,7 @@ const Home: React.FC<HeaderProps> = ({ navState, setNavState, sideNav, setSideNa
         {showButton && (
           <button
             onClick={scrollToTop}
-            className="fixed bottom-20 right-5 w-10 h-10 bg-green-600 hover:bg-green-700 text-white  rounded flex justify-center items-center shadow-lg transition-all duration-300"
+            className="fixed flex items-center justify-center w-10 h-10 text-white transition-all duration-300 bg-green-600 rounded shadow-lg bottom-20 right-5 hover:bg-green-700"
             aria-label="Back to top"
           >
             <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#fff"><path d="M480-528 324-372q-11 11-28 11t-28-11q-11-11-11-28t11-28l184-184q12-12 28-12t28 12l184 184q11 11 11 28t-11 28q-11 11-28 11t-28-11L480-528Z"/></svg>

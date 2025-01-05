@@ -48,16 +48,21 @@ const Banner: React.FC<BannerProps> = ({ url, setUrl, onExtractImages, isExtract
             </div>
 
             <div>
-                <div className={`card ${isExtracting ? "opacity-100" : "opacity-0"} transition duration-500`}>
-                    <div className="loader">
-                        <p className="hidden">loading</p>
-                        <div className="words">
-                        <span className="word">Counting pixels... Don’t let them escape!</span>
-                        <span className="word">Herding images into place... They’re a bit stubborn!</span>
-                        <span className="word">Teaching images to behave... Almost done!</span>
-                        <span className="word">Convincing images to load... They’re shy!</span>
-                        <span className="word">Baking your visuals... Just a little longer in the oven!</span>
-                        </div>
+                <div className={`card ${isExtracting ? "opacity-100" : "opacity-0"} transition duration-500 text-sm`}>
+                <div className="loader">
+                    <p>loading</p>
+                    <div className="words">
+                        <span className="word">Scraping images...</span>
+                        <span className="word">Finding visuals...</span>
+                        <span className="word">Loading pixels...</span>
+                        <span className="word">Fetching graphics...</span>
+                        <span className="word">Collecting data...</span>
+                        <span className="word">Scanning URLs...</span>
+                        <span className="word">Extracting links...</span>
+                        <span className="word">Processing images...</span>
+                        <span className="word">Optimizing display...</span>
+                        <span className="word">Finalizing results...</span>
+                    </div>
                     </div>
                  </div>
             </div>

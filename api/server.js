@@ -20,7 +20,10 @@ const corsOptions = {
       'http://172.20.10.4:5173',
       'http://localhost:5173',
       'http://localhost:3001',
+      'https://getimgio.netlify.app', // Add your Netlify frontend URL here
     ];
+
+    // Allow requests with no origin (e.g., mobile apps, Postman)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
