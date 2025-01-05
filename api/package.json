@@ -4,8 +4,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-  "start": "tsx server.ts"
-},
+    "start": "tsx server.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
