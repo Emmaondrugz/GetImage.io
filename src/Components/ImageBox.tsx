@@ -43,39 +43,32 @@ const ImageBox: React.FC<ImageBoxProps> = ({ image, isChecked, onCheckboxChange 
   
       // Handle downloading image
       const handleDownload = async (url: string, name: string) => {
+        console.log('Downloading image from:', url); // Debugging: Log the URL
         try {
-          // Fetch the image as a Blob
           const response = await fetch(url);
-      
-          // Check if the response is OK
-            if (!response.ok) {
-                throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`);
-            }
-        
-            // Convert the response to a Blob
-            const blob = await response.blob();
-        
-            // Create a temporary link element
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob); // Create a Blob URL
-            link.download = name; // Set the download file name
-            document.body.appendChild(link); // Append the link to the DOM (required for Firefox)
-            link.click(); // Trigger the download
-        
-            // Clean up the Blob URL and remove the link element
-            URL.revokeObjectURL(link.href);
-            document.body.removeChild(link);
-            } catch (error) {
-            alert("Failed to download image. Please check the console for details.");
-            console.error("Download error:", error);
-            }
+          if (!response.ok) {
+            throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`);
+          }
+          const blob = await response.blob();
+          console.log('Blob created:', blob); // Debugging: Log the Blob
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(blob);
+          link.download = name || "image.jpg"; // Fallback to a default name
+          document.body.appendChild(link);
+          link.click();
+          URL.revokeObjectURL(link.href);
+          document.body.removeChild(link);
+        } catch (error) {
+          alert('Failed to download image. Please check the console for details.');
+          console.error('Download error:', error);
+        }
       };
   
 
     return (
         <div className="flex flex-col h-[350px] bg-white p-2 border shadow-lg w-[280px] gap-y-3 rounded-xl">
             <div className="h-[230px] flex justify-center w-full p-2 bg-white rounded-lg">
-                <div className="absolute -mt-3 mr-60 z-10">
+                <div className="absolute z-10 -mt-3 mr-60">
                     <div className="content">
                         <label className="checkBox">
                             <input
