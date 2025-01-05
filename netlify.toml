@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"  # Build command (if applicable)
+  publish = "build"          # Output directory (e.g., `build` or `dist`)
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
