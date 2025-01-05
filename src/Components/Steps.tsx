@@ -1,9 +1,7 @@
-import React from "react";
-
 /* eslint-disable prettier/prettier */
 export default function Steps() {
     return (
-        <div className="flex flex-col items-center justify-center w-full py-16 bg-white  md:h-screen comfortaa">
+        <div className="flex flex-col items-center justify-center w-full py-16 bg-white md:h-screen comfortaa">
             <div className="flex flex-col w-full mx-5 md:flex-row gap-x-10 md:w-fit gap-y-5">
                 <div className="p-3 rounded-full shadow-none w-80 md:h-80 h-fit md:shadow-md">
                     <div className="flex flex-col justify-center w-full h-full p-3 border-green-600 border-none rounded-full items-left md:border-2 md:border-dashed">

@@ -4,7 +4,6 @@ import Home from './Pages/Home';
 import Pricing from './Pages/Pricing';
 import { NavState } from './types';
 import ApiPage from './Pages/ApiPage';
-import React from 'react';
 
 
 function App() {

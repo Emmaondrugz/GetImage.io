@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
 
 const Button = () => {
   const handleClick = () => {
