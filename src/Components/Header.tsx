@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = React.memo(({ navState, setNavState, sideN
       <div className="w-full md:max-w-[1000px]  h-[70px] justify-between poppins mx-auto mt-5 rounded-full px-5 md:px-10 py-2 flex items-center">
         <div className="relative z-50 flex items-center gap-x-3">
           <div className="w-10 h-10">
-            <img src="\src\assets\logo.svg" alt="" />
+            <img src="/logo.svg" alt="" />
           </div>
           <div className="py-4">
             <p className="font-normal poppins">Image Extractor</p>
