@@ -9,15 +9,6 @@ pnpm-debug.log*
 # Dependency directories
 node_modules/
 
-# Build artifacts (React)
-dist/
-build/
-.next/
-.cache/
-
-# Build artifacts (Express)
-dist-ssr/
-
 # Environment variables
 .env
 .env.local
