@@ -14,15 +14,12 @@ const PORT = 3001;
 
 const corsOptions = {
   origin: (origin, callback) => {
+    console.log('Incoming origin:', origin); // Debugging: Log the origin
     const allowedOrigins = [
       'http://172.20.10.3:5173',
-      'https://172.20.10.3:5173',
       'http://172.20.10.4:5173',
-      'https://172.20.10.4:5173',
       'http://localhost:5173',
-      'https://localhost:5173',
       'http://localhost:3001',
-      'https://localhost:3001',
       'https://getimgio.netlify.app', // Add your Netlify frontend URL here
     ];
 
@@ -49,7 +46,6 @@ app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Credentials', 'true');
   res.sendStatus(204); // No content for preflight requests
 });
-
 // Serve static files from the "extracted_images" directory
 app.use(
   '/extracted_images',
